@@ -82,3 +82,5 @@ shared_module(meson.project_name(), src,
 )
 
 test('tile_window_visibility_test', executable('tile_window_visibility_test', 'tests/tile_window_visibility_test.cpp', build_by_default: false))
+# Test the actual rounded texture/border scale helper without loading a compositor.
+test('radius_scale_test', executable('radius_scale_test', 'tests/radius_scale_test.cpp', build_by_default: false))
