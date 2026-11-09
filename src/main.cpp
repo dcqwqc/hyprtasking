@@ -420,8 +420,8 @@ static bool hook_should_render_window(void* thisptr, PHLWINDOW window, PHLMONITO
     if (window != nullptr && monitor != nullptr && window->m_workspace != nullptr
         && !hyprtasking_tile_accepts_window(
             hyprtasking_rendering_workspace_tile,
-            window->m_pinned,
-            window->m_workspace->m_isSpecialWorkspace,
+            static_cast<bool>(window->m_state & Desktop::View::WINDOW_STATE_PINNED),
+            window->m_workspace->type() == Workspace::eWorkspaceType::SPECIAL,
             window->m_workspace == monitor->m_activeWorkspace
         ))
         return false;

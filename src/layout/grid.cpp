@@ -9,6 +9,7 @@
 #include <hyprland/src/desktop/DesktopTypes.hpp>
 #include <hyprland/src/helpers/AnimatedVariable.hpp>
 #include <hyprland/src/animation/AnimationManager.hpp>
+#include <hyprland/src/animation/WorkspaceAnimationController.hpp>
 #include <hyprland/src/config/shared/animation/AnimationTree.hpp>
 #include <hyprland/src/managers/fullscreen/FullscreenController.hpp>
 #include <hyprland/src/managers/input/InputManager.hpp>
@@ -621,7 +622,7 @@ void HTLayoutGrid::render(CRenderContext& ctx) {
                     selector.grad1 = Config::CGradientValueData{CHyprColor{color}};
                 selector.borderSize = shape->border;
                 selector.round = shape->radius;
-                g_pHyprRenderer->m_renderPass.add(makeUnique<CBorderPassElement>(selector));
+                IHyprRenderer::addPassElement(ctx, makeUnique<CBorderPassElement>(selector));
             }
         }
     }
