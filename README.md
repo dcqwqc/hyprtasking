@@ -4,7 +4,7 @@
 </div>
 
 > [!Important]
-> - Supports Hyprland releases `v0.46.2`-`v0.56.2`.
+> - Supports Hyprland releases `v0.46.2`-`v0.57.0`.
 
 https://github.com/user-attachments/assets/8d6cdfd2-2b17-4240-a117-1dbd2231ed4e
 
@@ -57,7 +57,7 @@ Add hyprtasking to your flake inputs
 # flake.nix
 {
   inputs = {
-    hyprland.url = "github:hyprwm/Hyprland/v0.56.0";
+    hyprland.url = "github:hyprwm/Hyprland/v0.57.0";
 
     hyprtasking = {
       url = "github:raybbian/hyprtasking";
@@ -211,7 +211,7 @@ selection_color = 0,
 The outline follows Hyprland's outer gaps, window rounding, and reserved screen areas. Fullscreen workspaces and tiles without usable gaps receive a thin inset outline instead. The color defaults to `general:col.active_border`, or can be set using `0xAARRGGBB`. The feature is off by default and works independently of `border_size`.
 
 <details><summary>
-Click here to see the old hyprlang syntax
+Click here to see the old hyprlang syntax (Hyprland `v0.56.2` and earlier)
 </summary>
 
 ```
@@ -287,11 +287,6 @@ plugin {
 </details>
 
 ### Dispatchers
-
-- `hyprtasking:if_active, ARG` takes in a dispatch command (one that would be used after `hyprctl dispatch ...`) that will be dispatched only if the cursor overview is active.
-    - Allows you to use e.g. `escape` to close the overview when it is active. See the [example config](#configuration) for more info.
-
-- `hyprtasking:if_not_active, ARG` same as above, but if the overview is not active.
 
 - `hyprtasking:toggle [, ARG]` takes 1 optional argument that is either `cursor` or `all`
     - if the argument is `all`, then
